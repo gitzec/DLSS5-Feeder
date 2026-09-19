@@ -1,5 +1,22 @@
 ![DLSS5 Feeder](docs/images/dlss5-feeder-logo-dark.png)
 
+## gitzec fork: why it exists
+
+This public fork documents and tests DLSS5-Feeder against real Proton/D3D11
+games that have no native DLSS entry point, especially Tell Me Why (UE4.20).
+The fork exists because the investigation reproduced host-hello timeouts,
+exclusive-fullscreen startup problems, multi-GPU adapter selection issues,
+Vulkan present ordering problems, and additional runtime failures visible only
+in logs. Those fixes and diagnostics are kept public so users with the same
+compatibility problems can find the relevant code and evidence.
+
+For the Tell Me Why path, the Feeder reaches the D3D11 swapchain and can open a
+D3D12/NGX session with ReShade, LumeniteFX motion vectors, and DLAA. This does
+not by itself prove that NGX neural-rendering Feature 18 is available: the test
+GPU/runtime still reports `0xBAD0000C (OutOfDate)`. The repository is therefore
+also a public record of the remaining limitation, not a claim that every game
+or driver combination works.
+
 [![AI-DECLARATION: copilot](https://img.shields.io/badge/䷼%20AI--DECLARATION-copilot-fee2e2?labelColor=fee2e2)](AI-DECLARATION.md) [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?logo=buymeacoffee&logoColor=black)](https://buymeacoffee.com/jlrouzies)
 
 **[↓ Jump to the Table of Contents](#contents)**
